@@ -1,5 +1,4 @@
 # wifisignalstrength
-Coding Exercise for Nest
 
 Problem: 
 
@@ -7,27 +6,36 @@ Build a working Android app that displays wifi signal strength data in a line gr
 
 Solution:
 
-From a high-level point of view, to satisfy the home screen requirements I added a simple button used to navigate to LiveActivity and RecyclerView to display a list of graphs (represented by timestamp) used to navigate to SavedActivity. Both are backed by the same view, but each activity updates the dataset differently.
+GraphView is a custom view that displays the data in a line chart. The x-axis, y-axis, and dataset are drawn based on view size, datapoint count, and provider range. No custom library was used. See JavaDocs inside GraphView.java for more info. 
 
-The Live graph screen uses the WifiDataProvider to populate the GraphView. WifiDataProvider (which is a fake wifi data provider) emits a random number between 0-100 (inclusive) every second, which is consumed by a CircularFifoQueue limited to 30 datapoints (as noted in requirements). These updates are then passed to the GraphView. The datapoints (which include a value and a timestamp) from the queue are saved when the user presses the save button.
+MainActivity includes a simple button used to navigate to LiveActivity and a RecyclerView to display a list of graphs (represented by timestamp) used to navigate to SavedActivity. Both of these activities have the same presentation layer, but are logically different.
 
-The Saved graph screen simply reads the datapoints for the saved graph entity and graws the GraphView based on this data. The graph entity in the database is deleted when the user presses the delete button.
+LiveActivity uses the WifiDataProvider to populate the GraphView. WifiDataProvider is a fake data provider that emits a random number between 0-100 (inclusive) every second, which is consumed by a CircularFifoQueue limited to 30 datapoints (which include a value and timestamp). The refreshed data is continuously passed to the GraphView. If the user presses the save button, the current state of the queue is saved to persistent storage.
 
-The GraphView is a custom view that displays the data in a line chart. The x-axis, y-axis, and dataset are drawn based on window information, datapoint count, and values. No custom library was used. See JavaDocs inside GraphView.java for more info. 
+SavedActivity reads the datapoints for the saved graph entity and draws the GraphView based on this data. The entry in the database is deleted when the user presses the delete button.
 
 Libraries:
 
-Android Room Persistance Library - https://developer.android.com/topic/libraries/architecture/room.html
+Android Room Persistence Library - https://developer.android.com/topic/libraries/architecture/room.html
 
-Google announced it this year at I/O, and I figured this would be a good chance to try it out. Storing the Graph and DataPoints objects was too complex for Shared Preferences, so database persistance was the logical choice. In a production app, I would have gone with a more stable, battle-tested abstraction layer, such as Sugar, GreenDao, or SQLDelight.
+Google announced it this year at I/O, and I figured this would be a good chance to try it out. Storing the Graph and DataPoint objects was too complex for Shared Preferences, so database persistence was the logical choice. In a production app, I would have gone with a more stable, battle-tested abstraction layer, such as Sugar, GreenDao, or SQLDelight.
 
 RxJava/RxAndroid - https://github.com/ReactiveX/RxJava
 
-I decided to go with an RxJava based implementation for taking things off the main thread.  I've been using it considerably in my current work projects, so I thought this would make a good exercise in practice. Alternatives to Rx include using traditional AsyncTasks or AsyncTaskLoaders, noting the usual caveats about using the former (lifecycle management, ptasks that don't finish, etc).
+I decided to go with an RxJava based implementation for simplifying the interval timer for the data provider and taking things off the main thread. I've been using it considerably in my current work projects, so I thought this would make a good exercise in practice. Alternatives to Rx include using traditional AsyncTasks or AsyncTaskLoaders, noting the usual caveats about using the former concerning lifecycle management and interrupts.
 
-Testing Notes / Known Issues:
+Testing Notes:
 
-- Orientation changes automatically scale the x and y axis and cooresponding dataset line.
-- The one-to-many relationship between Graphs and DataPoints in the database isn't entirely correct. 
-- Data points on the edges of the graph get cut off. It's only cosmetic, but the problem can be solved by making the graph smaller on each side to accomodate the points, or don't draw the point at all on the edges.
-- Unit tests are incomplete. I didn't have enough time to completely unit test the data provider and database interactor. 
+- The data provider continuously emits new values every second, even after you leave LiveActivity. This was intended so you have the "rolling last 30 seconds of data" readily available when you return to the activity. This can be easily changed to only poll while in the activity, if desired. 
+- Orientation changes automatically scale the x and y axis and corresponding dataset line.
+
+Known Issues:
+
+- The one-to-many relationship between Graphs and DataPoints in the database isn't entirely correct. When a graph entity is deleted, the corresponding datapoint entities should be deleted with it, but they aren't. This can be solved by creating a proper relation between these two entities (id and graphId fields) so both tables are updated when a db transaction occurs, not just one. 
+- Data points on the edges of the graph get cut off. It's only cosmetic, but it can be fixed by making the graph smaller on each side to accommodate the points, or omitting the draw point action on the edges.
+- Unit tests are incomplete. I didn't have enough time to thoroughly unit test the data provider and database interactor.
+
+Improvement Ideas:
+
+- Graph should have clickable points that show the value and timestamp. You can accomplish this by using a touch listener and figuring out which point is closest to the touch, then updating the UI to show a nice focused state on that point.
+- Path drawing is animated so when the line is drawn you get a nice left-to-right draw animation.
