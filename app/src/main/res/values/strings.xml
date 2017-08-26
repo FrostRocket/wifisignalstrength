@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Wi-Fi Signal Strength</string>
+
+    <string name="live_button_text">View Live Signal Strength</string>
+
+    <string name="live_header">Live</string>
+    <string name="saved_header">Saved</string>
+
+    <string name="live_title">Live</string>
+    <string name="saved_title">Saved</string>
+
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+
+    <string name="delete_dialog_title">Delete Saved Data</string>
+    <string name="delete_dialog_message">Are you sure?</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="save_snackbar_message">Graph saved</string>
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="GraphView">
+        <attr name="pointRadius" format="float" />
+        <attr name="strokeWidth" format="float" />
+    </declare-styleable>
+</resources>
