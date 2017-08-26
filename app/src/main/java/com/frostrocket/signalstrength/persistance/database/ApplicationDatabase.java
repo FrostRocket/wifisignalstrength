@@ -1,14 +1,14 @@
-package com.nest.signalstrength.persistance.database;
+package com.frostrocket.signalstrength.persistance.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.nest.signalstrength.persistance.dao.DataPointDao;
-import com.nest.signalstrength.persistance.dao.GraphDao;
-import com.nest.signalstrength.persistance.entity.DataPoint;
-import com.nest.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.persistance.dao.DataPointDao;
+import com.frostrocket.signalstrength.persistance.dao.GraphDao;
+import com.frostrocket.signalstrength.persistance.entity.DataPoint;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
 
 /**
  * Singleton that handles creation and access to application database.

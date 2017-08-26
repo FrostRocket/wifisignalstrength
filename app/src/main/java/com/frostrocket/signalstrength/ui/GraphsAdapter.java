@@ -1,11 +1,11 @@
-package com.nest.signalstrength.ui;
+package com.frostrocket.signalstrength.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.nest.signalstrength.R;
-import com.nest.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.R;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
 
 import java.util.ArrayList;
 import java.util.List;

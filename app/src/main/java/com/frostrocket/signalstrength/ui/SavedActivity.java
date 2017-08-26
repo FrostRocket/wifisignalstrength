@@ -1,4 +1,4 @@
-package com.nest.signalstrength.ui;
+package com.frostrocket.signalstrength.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.nest.signalstrength.R;
-import com.nest.signalstrength.persistance.DatabaseInteractor;
-import com.nest.signalstrength.view.GraphView;
+import com.frostrocket.signalstrength.R;
+import com.frostrocket.signalstrength.persistance.DatabaseInteractor;
+import com.frostrocket.signalstrength.view.GraphView;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
@@ -20,7 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class SavedActivity extends AppCompatActivity {
 
-    public static final String EXTRA_GRAPH_ID = "com.nest.signalstrength.graphId";
+    public static final String EXTRA_GRAPH_ID = "com.frostrocket.signalstrength.graphId";
 
     private GraphView graphView;
     private AlertDialog deleteDialog;

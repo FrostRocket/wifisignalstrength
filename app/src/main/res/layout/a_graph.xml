@@ -8,7 +8,7 @@
 
     <include layout="@layout/l_app_bar" />
 
-    <com.nest.signalstrength.view.GraphView
+    <com.frostrocket.signalstrength.view.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

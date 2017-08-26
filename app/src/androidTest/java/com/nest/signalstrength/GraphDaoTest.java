@@ -1,13 +1,13 @@
-package com.nest.signalstrength;
+package com.frostrocket.signalstrength;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.nest.signalstrength.persistance.dao.GraphDao;
-import com.nest.signalstrength.persistance.database.ApplicationDatabase;
-import com.nest.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.persistance.dao.GraphDao;
+import com.frostrocket.signalstrength.persistance.database.ApplicationDatabase;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
 
 import org.junit.After;
 import org.junit.Before;

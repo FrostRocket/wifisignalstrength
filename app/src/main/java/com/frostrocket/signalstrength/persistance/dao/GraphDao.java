@@ -1,4 +1,4 @@
-package com.nest.signalstrength.persistance.dao;
+package com.frostrocket.signalstrength.persistance.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -6,8 +6,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.nest.signalstrength.persistance.entity.DataPoint;
-import com.nest.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.persistance.entity.DataPoint;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
 
 import java.util.List;
 

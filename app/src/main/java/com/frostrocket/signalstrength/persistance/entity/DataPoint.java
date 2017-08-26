@@ -1,4 +1,4 @@
-package com.nest.signalstrength.persistance.entity;
+package com.frostrocket.signalstrength.persistance.entity;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

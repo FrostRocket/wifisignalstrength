@@ -1,4 +1,4 @@
-package com.nest.signalstrength.view;
+package com.frostrocket.signalstrength.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,9 +12,9 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.nest.signalstrength.R;
-import com.nest.signalstrength.data.WifiDataProvider;
-import com.nest.signalstrength.persistance.entity.DataPoint;
+import com.frostrocket.signalstrength.R;
+import com.frostrocket.signalstrength.data.WifiDataProvider;
+import com.frostrocket.signalstrength.persistance.entity.DataPoint;
 
 import java.util.ArrayList;
 import java.util.Collection;

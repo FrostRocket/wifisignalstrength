@@ -1,4 +1,4 @@
-package com.nest.signalstrength.ui;
+package com.frostrocket.signalstrength.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.nest.signalstrength.R;
-import com.nest.signalstrength.data.WifiDataProvider;
-import com.nest.signalstrength.persistance.DatabaseInteractor;
-import com.nest.signalstrength.persistance.entity.DataPoint;
-import com.nest.signalstrength.persistance.entity.Graph;
-import com.nest.signalstrength.view.GraphView;
+import com.frostrocket.signalstrength.R;
+import com.frostrocket.signalstrength.data.WifiDataProvider;
+import com.frostrocket.signalstrength.persistance.DatabaseInteractor;
+import com.frostrocket.signalstrength.persistance.entity.DataPoint;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.view.GraphView;
 
 import java.util.Queue;
 
@@ -23,7 +23,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.nest.signalstrength.R.id.graph;
+import static com.frostrocket.signalstrength.R.id.graph;
 
 public class LiveActivity extends AppCompatActivity {
 

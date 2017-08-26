@@ -1,6 +1,6 @@
-package com.nest.signalstrength.data;
+package com.frostrocket.signalstrength.data;
 
-import com.nest.signalstrength.persistance.entity.DataPoint;
+import com.frostrocket.signalstrength.persistance.entity.DataPoint;
 
 import org.apache.commons.collections4.queue.CircularFifoQueue;
 

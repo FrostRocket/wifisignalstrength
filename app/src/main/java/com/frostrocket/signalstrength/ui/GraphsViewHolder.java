@@ -1,11 +1,11 @@
-package com.nest.signalstrength.ui;
+package com.frostrocket.signalstrength.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.nest.signalstrength.R;
-import com.nest.signalstrength.persistance.entity.Graph;
+import com.frostrocket.signalstrength.R;
+import com.frostrocket.signalstrength.persistance.entity.Graph;
 
 import java.text.DateFormat;
 import java.util.Date;
