@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.nest.signalstrength.R;
 import com.nest.signalstrength.persistance.entity.Graph;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,11 +18,11 @@ class GraphsAdapter extends RecyclerView.Adapter<GraphsViewHolder> implements Gr
         void onGraphSelected(Graph graph);
     }
 
-    private final List<Graph> graphs;
+    private List<Graph> graphs;
     private final OnGraphSelectedListener listener;
 
-    GraphsAdapter(List<Graph> graphs, OnGraphSelectedListener listener) {
-        this.graphs = graphs;
+    GraphsAdapter(OnGraphSelectedListener listener) {
+        this.graphs = new ArrayList<>();
         this.listener = listener;
     }
 
@@ -44,5 +45,10 @@ class GraphsAdapter extends RecyclerView.Adapter<GraphsViewHolder> implements Gr
     @Override
     public void onItemClick(int position) {
         listener.onGraphSelected(graphs.get(position));
+    }
+
+    public void addAll(List<Graph> graphs) {
+        this.graphs = graphs;
+        notifyDataSetChanged();
     }
 }

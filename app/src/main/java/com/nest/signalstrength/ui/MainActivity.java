@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.item_decoration));
         recyclerView.addItemDecoration(dividerItemDecoration);
 
+        adapter = new GraphsAdapter(this);
+        recyclerView.setAdapter(adapter);
+
         interactor = DatabaseInteractor.getInstance(getApplicationContext());
     }
 
@@ -74,8 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // We want to display information in reverse chronological order
         Collections.reverse(graphs);
 
-        adapter = new GraphsAdapter(graphs, this);
-        recyclerView.setAdapter(adapter);
+        adapter.addAll(graphs);
     }
 
     @Override
