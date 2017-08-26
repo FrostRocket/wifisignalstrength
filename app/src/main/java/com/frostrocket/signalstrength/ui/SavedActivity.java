@@ -91,7 +91,7 @@ public class SavedActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_delete:
+            case R.id.delete:
                 displayConfirmationDialog();
                 return true;
             default:

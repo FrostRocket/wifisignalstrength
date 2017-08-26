@@ -22,6 +22,8 @@ import java.util.List;
 
 /**
  * View that draws a scaled X/Y axis, scaled chart grid, and datapoints.
+ * Paths were calculated based on canvas height/width (in pixels) and offsets were
+ * calculated based on data values.
  */
 
 public class GraphView extends View {
@@ -171,7 +173,7 @@ public class GraphView extends View {
             int x = origin.x;
             float y = yUnitSize * i;
 
-            // Only drawing grid lines for multiples of 5
+            // Only drawing grid lines for multiples of 5 to make the graph cleaner
             if (i % 5 == 0) {
                 yPath.lineTo(x, y);
                 canvas.drawLine(x, y, canvas.getWidth(), y, gridPaint);
@@ -186,10 +188,10 @@ public class GraphView extends View {
      * Draw the data line
      * <p>
      * 1. Start by moving our starting point to be the first item in our points list.
-     * 2. Calculate x, y offset
-     * 3. Draw a line connecting the coordinates.
-     * 4. Draw a small dot for each point.
-     * 5. Repeat until we run out of datapoints.
+     * 2. Add a path section to the next datapoint.
+     * 3. Draw a small dot for each point.
+     * 4. Repeat until we run out of datapoints.
+     * 5. Draw the final data line path.
      */
     private void drawDataLine(Canvas canvas) {
         dataPath.reset();

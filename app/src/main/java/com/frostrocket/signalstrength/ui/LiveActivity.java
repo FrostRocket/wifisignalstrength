@@ -91,7 +91,7 @@ public class LiveActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_save:
+            case R.id.save:
                 saveGraphToDatabase();
                 Snackbar.make(coordinatorLayout, R.string.save_snackbar_message, Snackbar.LENGTH_SHORT).show();
                 return true;

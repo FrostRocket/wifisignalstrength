@@ -8,7 +8,9 @@ import org.junit.Test;
 
 import java.util.Queue;
 
+import io.reactivex.android.plugins.RxAndroidPlugins;
 import io.reactivex.observers.TestObserver;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -18,6 +20,8 @@ public class WifiDataProviderTest {
 
     @Before
     public void setUp() throws Exception {
+        RxAndroidPlugins.setInitMainThreadSchedulerHandler(__ -> Schedulers.trampoline());
+
         provider = WifiDataProvider.getInstance();
     }
 

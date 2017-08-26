@@ -29,7 +29,7 @@ class GraphsAdapter extends RecyclerView.Adapter<GraphsViewHolder> implements Gr
     @Override
     public GraphsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new GraphsViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.r_saved_graph_item, parent, false), this);
+                .inflate(R.layout.r_graph_item, parent, false), this);
     }
 
     @Override
