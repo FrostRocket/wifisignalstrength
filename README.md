@@ -1,8 +1,21 @@
-# wifisignalstrength
+# wifisignalstrength - Coding exercise given by Nest
 
 Problem: 
 
 - Build a working Android app that displays wifi signal strength data in a line graph.
+
+Requirements:
+
+- Home screen that has a link to the Live graph screen, and links to each Saved graph
+- Live graph screen that displays a line graph of wifi signal strength values (ranging 0-100), with the rolling last 30 seconds of data, and refreshes every second; that screen also contains a button to Save the current graph
+- Saved graph screen that displays a static graph that was previously saved (the data is saved, not the graph bitmap itself).
+- The live wifi signal strength is actually a fake data provider that returns a random number every time it is invoked
+- The live graph screen takes care of refreshing the graph (every second) and requesting a new value to the provider
+- The graphs are saved in the app’s private storage, each data point’s value and timestamp are saved
+- The app is tested
+- No third-party library is used to draw the graphs
+- Graphs should scale with the screen (works in portrait/landscape)
+- There are no icon, or animation requirements
 
 Solution:
 
