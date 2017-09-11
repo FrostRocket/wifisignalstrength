@@ -1,4 +1,4 @@
-# wifisignalstrength - Coding exercise given by Nest
+# wifisignalstrength - Nest Coding Challenge
 
 Problem: 
 
